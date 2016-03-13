@@ -5,3 +5,9 @@ yaml_route_raspuns:
 yaml_route_flasf:
     path:     /flash/{numar}
     defaults: { _controller: AppBundle:Default:flashMsgEx }
+    
+global_array_parameter:
+    path:     /welcome/{page}/{p2}
+    defaults: { _controller: AppBundle:Global:routingParameters, p2: 'Andreea' }
+    requirements:
+        page: \d+

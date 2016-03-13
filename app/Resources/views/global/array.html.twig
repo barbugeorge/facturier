@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+   
+
+    {% for u,r in res %}
+        {% for h,g in r %}
+
+            {{u ~ g }}
+
+        {% endfor %}
+            
+    {% endfor %}
+
+
+        
+{% endblock %}    
