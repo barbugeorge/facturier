@@ -14,7 +14,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-         for($i=0;$i<30;$i++){
+        /*
+         * sa generam un array de test
+         * 
+         */ 
+        for($i=0;$i<30;$i++){
             for($j=0;$j<10;$j++){                
                 $rez[$i][] ="text $i,$j";                
             }

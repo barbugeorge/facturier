@@ -13,8 +13,10 @@
     <meta content="" name="description">
     <meta content="" name="author">
     <link rel="icon"  href="{{ asset('favicon.ico') }}" />
-    {% set name = 'LOGIS' %} 
-    {% set mypath = 'images/facturier-logo.gif' %}
+
+    {% set name = 'Facturier' %} 
+
+    {% set mypath = 'images/logo_'~name~'.png' %}
     {% if head_title is defined %}    
         <title>{{name}} - {{ head_title }}</title>
     {% else %}
@@ -22,16 +24,15 @@
     {% endif %}
  
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />   
-        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />        
         <link rel="stylesheet" href="{{ asset('css/facturier.css') }}" />
-        
  
     {% endblock %}    
  
   </head>
  
   <body>
+      {#TEST#}
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">              
             <div class="navbar-header">
@@ -43,22 +44,30 @@
                 </button>
                 <a class="navbar-brand" href="{{ path('index') }}">
                     <img class="logo-img" alt="{{name}}" src="{{ asset(mypath|lower) }}" />
-{#                    <span class="logo-text">{{name}}</span>#}
+
+                    {#<span class="logo-text">{{name}}</span>#}
+
                 </a>
             </div>
  
             <div class="navbar-collapse collapse clear">
                 {% set d_links = {
-                                'Product':'product',
-                                'MainLink  2':'#',
-                                'MainLink  3':'#'
-                                
+                                'Feature name':'featurename',
+                                'Categories':'category',
+                                'Partner':'partner',
+                                'Unit measure':'unitmeasure',
+                                'Warehouse':'warehouse',
+                                'Address':'address',
+                                'PaymentType':'paymenttype',
+                                'DocStatus':'docstatus',
+                                'DocType':'doctype'
+
                                 }
                 %}
                 {% block dashboard_links %}
                 <ul class="nav navbar-nav navbar-left"> 
                     {% for key,link in d_links %}
-                        <li><a href="{{ link }}">{{ key }}</a></li>
+                        <li><a href="{{ path(link~'_index') }}">{{ key }}</a></li>
                     {% endfor %}
                     
                 </ul>
@@ -79,7 +88,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
         {% block submenu %}
           <ul class="nav nav-sidebar">
-            <li><a href="#">SubLink1</a></li>
+            <li><a href="#">Sublink1</a></li>
             <li><a href="#">SubLink2</a></li>
             <li><a href="#">SubLink3</a></li>
           </ul>
@@ -97,7 +106,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/logis.js') }}"></script>        
-    <script type="text/javascript" src="{{ asset('js/jquery-ui-1.11.4/jquery-ui.js') }}"></script> 
+    <script type="text/javascript" src="{{ asset('jquery-ui-1.11.4/jquery-ui.js') }}"></script> 
     <!--[if lt IE 9]>
     <script type="text/javascript" src="{{ asset('js/html5shiv-printshiv.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/respond.min.js') }}"></script>
@@ -107,3 +116,4 @@
  
 </body>
 </html>
+
