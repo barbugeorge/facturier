@@ -15,11 +15,11 @@ class FeatureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('value')
-          //  ->add('datCre', 'datetime')
+            //->add('datCre', 'datetime')
             //->add('datUpd', 'datetime')
             //->add('products')
             ->add('name')
+            ->add('value')
         ;
     }
     
